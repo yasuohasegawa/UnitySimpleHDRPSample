@@ -7,8 +7,6 @@ using UnityEngine.Experimental.Rendering;
 [ExecuteInEditMode]
 public class BasicAssetPipe : RenderPipelineAsset
 {
-    public Color clearColor = Color.green;
-
 #if UNITY_EDITOR
     [UnityEditor.MenuItem("SRP/Create BasicAssetPipe asset")]
     static void CreateBasicAssetPipeline()
@@ -20,20 +18,19 @@ public class BasicAssetPipe : RenderPipelineAsset
 
     protected override IRenderPipeline InternalCreatePipeline()
     {
-        return new BasicPipeInstance(clearColor);
+        return new BasicPipeInstance();
     }
 }
 
 public class BasicPipeInstance : RenderPipeline
 {
-    private Color m_ClearColor = Color.black;
     private CommandBuffer cmd;
     private ShaderPassName basicPass = new ShaderPassName("BasicPass");
     private CullResults cull;
 
-    public BasicPipeInstance(Color clearColor)
+    public BasicPipeInstance()
     {
-        m_ClearColor = clearColor;
+        
     }
 
     public override void Render(ScriptableRenderContext context, Camera[] cameras)
