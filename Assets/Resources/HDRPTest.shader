@@ -19,8 +19,6 @@
 			#pragma fragment frag
 
 			#include "UnityCG.cginc"
-#include "AutoLight.cginc"
-#include "Lighting.cginc"
 			#include "UnityLightingCommon.cginc" 
 
 			struct appdata
